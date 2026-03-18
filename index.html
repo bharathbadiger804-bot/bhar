@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Energy Efficiency Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>⚡ Energy Efficiency Dashboard</h1>
+</div>
+
+<div class="container">
+
+    <!-- INPUT PANEL -->
+    <div class="card">
+        <h3>Enter Building Details</h3>
+
+        <input type="number" id="area" placeholder="Area (sq.m)">
+        <input type="number" id="people" placeholder="Number of People">
+        <input type="number" id="appliances" placeholder="Appliances Count">
+        <input type="number" id="hours" placeholder="Usage Hours/Day">
+
+        <button onclick="calculate()">Calculate</button>
+
+        <div class="result-box" id="results"></div>
+    </div>
+
+    <!-- CHART PANEL -->
+    <div class="card">
+        <h3>Energy Breakdown</h3>
+        <canvas id="chart"></canvas>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
