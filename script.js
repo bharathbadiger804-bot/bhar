@@ -32,14 +32,28 @@ function calculate() {
 
     let score = Math.max(0, 100 - totalEnergy);
 
-    document.getElementById("results").innerHTML = `
-        <b>Total Energy:</b> ${totalEnergy.toFixed(2)} kWh <br>
-        <b>Cost:</b> ₹${cost.toFixed(2)} <br>
-        <b>CO₂ Emissions:</b> ${co2.toFixed(2)} kg <br>
-        <b>Efficiency:</b> ${efficiency} <br>
-        <b>Green Score:</b> ${score}/100 🌱 <br>
-        <b>Suggestion:</b> ${suggestion}
-    `;
+  let dailyEnergy = totalEnergy;
+let monthlyEnergy = dailyEnergy * 30;
+let yearlyEnergy = dailyEnergy * 365;
+
+let dailyCost = dailyEnergy * 8;
+let monthlyCost = monthlyEnergy * 8;
+let yearlyCost = yearlyEnergy * 8;
+
+document.getElementById("results").innerHTML = `
+    <b>Daily Energy:</b> ${dailyEnergy.toFixed(2)} kWh <br>
+    <b>Monthly Energy:</b> ${monthlyEnergy.toFixed(2)} kWh <br>
+    <b>Yearly Energy:</b> ${yearlyEnergy.toFixed(2)} kWh <br><br>
+
+    <b>Daily Cost:</b> ₹${dailyCost.toFixed(2)} <br>
+    <b>Monthly Cost:</b> ₹${monthlyCost.toFixed(2)} <br>
+    <b>Yearly Cost:</b> ₹${yearlyCost.toFixed(2)} <br><br>
+
+    <b>CO₂ Emissions (Daily):</b> ${(dailyEnergy * 0.82).toFixed(2)} kg <br>
+    <b>Efficiency:</b> ${efficiency} <br>
+    <b>Green Score:</b> ${score}/100 🌱 <br>
+    <b>Suggestion:</b> ${suggestion}
+`;
 
     // Chart
     if (chart) chart.destroy();
